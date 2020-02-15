@@ -120,7 +120,7 @@ RegisterNetEvent('esx_newaccessories:bag')
 AddEventHandler('esx_newaccessories:bag', function()
 	TriggerEvent('skinchanger:getSkin', function(skin)
 		local clothesSkin = {
-		['bags_1'] = 0, ['bags_2'] = 0
+		    ['bags_1'] = 0, ['bags_2'] = 0
 		}
 		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
 	end)
