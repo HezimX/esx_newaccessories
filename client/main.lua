@@ -19,7 +19,7 @@ function OpenAccessoryMenu()
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'set_unset_accessory',
 	{
 		title = _U('set_unset'),
-		align = 'top-left',
+		align = 'top-right',
 		elements = {
 			{label = _U('helmet'), value = 'Helmet'},
 			{label = _U('ears'), value = 'Ears'},
@@ -29,7 +29,6 @@ function OpenAccessoryMenu()
 			{label = _U('remove_shirt'), value = 'shirt'},
 			{label = _U('remove_pants'), value = 'pants'},
 			{label = _U('remove_shoes'), value = 'shoes'},
-			{label = _U('remove_bag'), value = 'bag'},
 		}
 	}, function(data, menu)
 		menu.close()
@@ -48,9 +47,6 @@ function OpenAccessoryMenu()
 			elseif data.current.value == 'shoes' then
 				TriggerEvent('esx_newaccessories:shoes')
 				ESX.UI.Menu.CloseAll()	
-			elseif data.current.value == 'bag' then
-				TriggerEvent('esx_newaccessories:bag')
-				ESX.UI.Menu.CloseAll()
 			end
 		else
 			SetUnsetAccessory(data.current.value)
@@ -60,67 +56,33 @@ function OpenAccessoryMenu()
 		menu.close()
 	end)
 end
-
 RegisterNetEvent('esx_newaccessories:shirt')
 AddEventHandler('esx_newaccessories:shirt', function()
 	TriggerEvent('skinchanger:getSkin', function(skin)
-		if(skin.sex == 0) then
 		local clothesSkin = {
-		    ['tshirt_1'] = 15, ['tshirt_2'] = 0,
-		    ['torso_1'] = 15, ['torso_2'] = 0,
-		    ['arms'] = 15, ['arms_2'] = 0
+			['tshirt_1'] = 15, ['tshirt_2'] = 0,
+			['torso_1'] = 15, ['torso_2'] = 0,
+			['arms'] = 15, ['arms_2'] = 0
 		}
 		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
-	    else
-		local clothesSkin = {
-		    ['tshirt_1'] = 2, ['tshirt_2'] = 0,
-		    ['torso_1'] = 33, ['torso_2'] = 7,
-		    ['arms'] = 15, ['arms_2'] = 0
-		}
-		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
-		end
 	end)
 end)
 
 RegisterNetEvent('esx_newaccessories:pants')
 AddEventHandler('esx_newaccessories:pants', function()
 	TriggerEvent('skinchanger:getSkin', function(skin)
-		if(skin.sex == 0) then
 		local clothesSkin = {
-		    ['pants_1'] = 21, ['pants_2'] = 0
+			['pants_1'] = 21, ['pants_2'] = 0
 		}
 		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
-		else 
-		local clothesSkin = {
-		    ['pants_1'] = 62, ['pants_2'] = 5
-		}
-		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
-		end
 	end)
 end)
 
 RegisterNetEvent('esx_newaccessories:shoes')
 AddEventHandler('esx_newaccessories:shoes', function()
 	TriggerEvent('skinchanger:getSkin', function(skin)
-		if(skin.sex == 0) then
 		local clothesSkin = {
-		    ['shoes_1'] = 34, ['shoes_2'] = 0
-		}
-		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
-		else
-		local clothesSkin = {
-		    ['shoes_1'] = 35, ['shoes_2'] = 0
-		}
-		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
-		end
-	end)
-end)
-
-RegisterNetEvent('esx_newaccessories:bag')
-AddEventHandler('esx_newaccessories:bag', function()
-	TriggerEvent('skinchanger:getSkin', function(skin)
-		local clothesSkin = {
-		    ['bags_1'] = 0, ['bags_2'] = 0
+			['shoes_1'] = 34, ['shoes_2'] = 0
 		}
 		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
 	end)
@@ -344,7 +306,7 @@ Citizen.CreateThread(function()
 		end
 
 		if Config.EnableControls then
-			if IsControlJustReleased(0, 244) and IsInputDisabled(0) and not isDead then -- K
+			if IsControlJustReleased(0, 311) and IsInputDisabled(0) and not isDead then -- K
 				OpenAccessoryMenu()
 			end
 		end
