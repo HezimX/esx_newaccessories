@@ -20,4 +20,5 @@ Locales ['es'] = {
   ['remove_shirt'] = 'Sacarse la parte de arriba',
   ['remove_pants'] = 'Sacarse los pantalones',
   ['remove_shoes'] = 'Sacarse los zapatos',
+  ['remove_bag'] = 'Quitarse la bolsa',
 }
