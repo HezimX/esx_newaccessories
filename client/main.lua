@@ -19,7 +19,7 @@ function OpenAccessoryMenu()
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'set_unset_accessory',
 	{
 		title = _U('set_unset'),
-		align = 'top-right',
+		align = 'top-left',
 		elements = {
 			{label = _U('helmet'), value = 'Helmet'},
 			{label = _U('ears'), value = 'Ears'},
