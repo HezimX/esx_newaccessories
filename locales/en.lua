@@ -20,4 +20,5 @@ Locales ['en'] = {
   ['remove_shirt'] = 'Take off shirt',
   ['remove_pants'] = 'Take off pants',
   ['remove_shoes'] = 'Take off shoes',
+  ['remove_bag'] = 'Take off bag'
 }
